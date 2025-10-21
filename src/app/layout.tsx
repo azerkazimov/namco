@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import AnimatedDust from "../components/ui/animated-dust";
 import Navbar from "../features/components/navbar/navbar";
 import { fontVariablesString } from "../lib/fonts";
-import AnimatedDust from "../components/ui/animated-dust";
+import "./globals.css";
+import Footer from "@/features/components/footer/footer";
 
 export const metadata: Metadata = {
-  title: "AIMC",
-  description: "AIMC",
+  title: "AIMC - Advanced Industrial Maintenance & Consulting",
+  description:
+    "Leading provider of industrial automation, predictive maintenance, thermography, and consulting services for metal ore processing and industrial equipment.",
 };
 
 export default function RootLayout({
@@ -15,16 +17,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" >
       <body
-        className={`${fontVariablesString} font-league-spartan antialiased relative`}
-
+        className={`${fontVariablesString} font-satoshi antialiased relative`}
       >
-        <AnimatedDust />
+        {/* <AnimatedDust /> */}
         <Navbar />
-        <main className="relative z-10">
-          {children}
-        </main>
+        <main className="relative z-10">{children}</main>
+        <Footer />
       </body>
     </html>
   );

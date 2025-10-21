@@ -1,0 +1,11 @@
+Model Information:
+* title:	Metal Ore
+* source:	https://sketchfab.com/3d-models/metal-ore-04f8b82a5e4f41dbb01c3c1493e841b0
+* author:	FaScans (https://sketchfab.com/FaScans)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Metal Ore" (https://sketchfab.com/3d-models/metal-ore-04f8b82a5e4f41dbb01c3c1493e841b0) by FaScans (https://sketchfab.com/FaScans) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

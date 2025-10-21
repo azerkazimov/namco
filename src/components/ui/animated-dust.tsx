@@ -36,7 +36,7 @@ export default function AnimatedDust() {
     // Initialize particles
     const initParticles = () => {
       const particles: DustParticle[] = [];
-      const particleCount = Math.floor((canvas.width * canvas.height) / 15000); // Responsive particle count
+      const particleCount = Math.floor((canvas.width * canvas.height) / 15000);
 
       for (let i = 0; i < particleCount; i++) {
         particles.push({
@@ -98,13 +98,8 @@ export default function AnimatedDust() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50"
-        style={{
-          backgroundImage: "url(/beautiful-night-sky-with-shiny-stars.jpg)",
-        }}
-      />
+      {/* Background Images */}
+      
 
       {/* Dust Particles Canvas */}
       <canvas
