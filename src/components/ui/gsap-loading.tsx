@@ -15,14 +15,13 @@ export default function GSAPLoading({ onComplete }: GSAPLoadingProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLDivElement>(null);
-  const progressBarRef = useRef<HTMLDivElement>(null);
-  const progressFillRef = useRef<HTMLDivElement>(null);
+  const counterRef = useRef<HTMLDivElement>(null);
   const dotsRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     // Initial setup - hide elements
-    gsap.set([titleRef.current, subtitleRef.current, progressBarRef.current, dotsRef.current], {
+    gsap.set([titleRef.current, subtitleRef.current, counterRef.current, dotsRef.current], {
       opacity: 0,
       y: 30
     });
@@ -37,7 +36,7 @@ export default function GSAPLoading({ onComplete }: GSAPLoadingProps) {
     )
     
     // Animate elements in sequence
-    .to([titleRef.current, subtitleRef.current, progressBarRef.current, dotsRef.current], {
+    .to([titleRef.current, subtitleRef.current, counterRef.current, dotsRef.current], {
       opacity: 1,
       y: 0,
       duration: 0.6,
@@ -70,9 +69,8 @@ export default function GSAPLoading({ onComplete }: GSAPLoadingProps) {
       ease: "none"
     }, 1.2)
 
-    // Animate progress bar
-    .to(progressFillRef.current, {
-      width: "100%",
+    // Animate counter
+    .to({}, {
       duration: 2.5,
       ease: "power2.inOut",
       onUpdate: function() {
@@ -128,12 +126,21 @@ export default function GSAPLoading({ onComplete }: GSAPLoadingProps) {
 
       {/* Main loading content */}
       <div className="text-center space-y-8 relative z-10">
-        {/* Main title */}
-        <div 
-          ref={titleRef}
-          className="text-6xl md:text-8xl font-orbitron font-bold text-gray-400 uppercase tracking-wider"
-        >
-          ████████
+        {/* Main title with counter behind */}
+        <div className="relative">
+          <div 
+            ref={titleRef}
+            className="text-6xl md:text-8xl font-orbitron font-bold text-gray-400 uppercase tracking-wider relative z-10"
+          >
+            ████████
+          </div>
+          {/* Counter behind the text */}
+          <div 
+            ref={counterRef}
+            className="absolute inset-0 flex items-center justify-center text-6xl md:text-[440px] font-orbitron font-bold text-gray-800 uppercase tracking-wider"
+          >
+            {progress}
+          </div>
         </div>
 
         {/* Subtitle */}
@@ -144,21 +151,6 @@ export default function GSAPLoading({ onComplete }: GSAPLoadingProps) {
           ████████████████████
         </div>
 
-        {/* Progress bar container */}
-        <div ref={progressBarRef} className="w-80 mx-auto space-y-4">
-          <div className="relative h-1 bg-gray-800 rounded-full overflow-hidden">
-            <div 
-              ref={progressFillRef}
-              className="absolute left-0 top-0 h-full bg-gradient-to-r from-gray-600 to-gray-400 rounded-full"
-              style={{ width: "0%" }}
-            />
-          </div>
-          
-          {/* Progress percentage */}
-          <div className="text-gray-500 font-orbitron text-sm uppercase tracking-wider">
-            {progress}% COMPLETE
-          </div>
-        </div>
 
         {/* Loading dots */}
         <div ref={dotsRef} className="flex justify-center space-x-2">
