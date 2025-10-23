@@ -13,6 +13,7 @@ import { useMobile } from "@/features/store/useMobile";
 import MobileNav from "./mobile-nav";
 import { SearchDialog } from "@/components/ui/search-dialog";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const Navbar = () => {
   const { isMenuOpen, setIsMenuOpen } = useMobile();
@@ -49,9 +50,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <span className="text-3xl font-bold text-white hover:text-amber-600 transition-colors duration-200 font-montserrat">
-                AIMC
-              </span>
+              <Image src="/aimc-logo.png" alt="AIMC Logo" width={100} height={100} />
             </Link>
           </div>
           <div className="flex gap-2">
